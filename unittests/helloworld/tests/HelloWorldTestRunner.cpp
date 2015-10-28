@@ -11,6 +11,8 @@
 #include <cppunit/TestResult.h>
 #include <cppunit/TestResultCollector.h>
 #include <cppunit/TestRunner.h>
+#include <cppunit/XmlOutputter.h>
+#include <ostream>
 
 int main() {
     // Create the event manager and test controller
@@ -32,6 +34,10 @@ int main() {
     // Print test in a compiler compatible format.
     CPPUNIT_NS::CompilerOutputter outputter(&result, CPPUNIT_NS::stdCOut());
     outputter.write();
-
+    
+    std::ofstream xmlFileOut("cpptestresults.xml");
+    CPPUNIT_NS::XmlOutputter xmlOut(&result, xmlFileOut);
+    xmlOut.write();
+    
     return result.wasSuccessful() ? 0 : 1;
 }
