@@ -21,5 +21,8 @@ Helloer::~Helloer() {
 }
 
 string Helloer::message() const {
+    if (who.length() == 0) {
+        return "";
+    }
     return (string)"Hello " + who;
 }
