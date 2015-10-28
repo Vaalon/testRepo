@@ -8,6 +8,8 @@
 #include <cstdlib>
 #include <iostream>
 
+#include "Helloer.h"
+
 using namespace std;
 
 /*
@@ -15,7 +17,8 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
-    cout << "Hello World!" << endl;
+    Helloer helloer("World");
+    cout << helloer.message() << endl;
     return 0;
 }
 
